@@ -4,12 +4,9 @@ import 'package:app_referencia/src/features/products/domain/repository/cart_repo
 import 'package:dio/dio.dart';
 
 class CartAPI implements CartRepository {
-  late final Dio dio;
+  late final dio = DioClient().instance;
 
-  CartAPI() {
-    dio = DioClient().instance;
-  }
-
+  @override
   Future<List<Cart>> fetchCarts() async {
     Response response = await dio.get("https://fakestoreapi.com/carts");
 
@@ -20,6 +17,7 @@ class CartAPI implements CartRepository {
     return carts;
   }
 
+  @override
   Future<Cart> fetchCart(int cartId) async {
     Response response = await dio.get("https://fakestoreapi.com/carts/$cartId");
 

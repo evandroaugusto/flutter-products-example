@@ -8,8 +8,6 @@ class DioClient {
   late Dio instance;
 
   DioClient._internal() {
-    // private constructor that creates the singleton instance
-
     instance = Dio()
       ..options.baseUrl = Environment.api
       ..options.connectTimeout = 15000
