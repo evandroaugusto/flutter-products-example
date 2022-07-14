@@ -2,6 +2,8 @@ import 'package:app_referencia/src/app.routes.dart';
 import 'package:app_referencia/src/features/users/domain/entity/user.dart';
 import 'package:flutter/material.dart';
 
+import '../../users.routes.dart';
+
 class UserListItem extends StatelessWidget {
   final User? user;
   const UserListItem({Key? key, required this.user}) : super(key: key);
@@ -10,7 +12,7 @@ class UserListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     void _navigateToUserDetail(int userId) {
       Navigator.of(context).pushNamed(
-        AppRoutes.userDetail,
+        UserRoutes.userDetail,
         arguments: userId,
       );
     }

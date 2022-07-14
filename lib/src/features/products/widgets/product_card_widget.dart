@@ -1,5 +1,6 @@
 import 'package:app_referencia/src/app.routes.dart';
 import 'package:app_referencia/src/features/products/domain/entity/product.dart';
+import 'package:app_referencia/src/features/products/products.routes.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class ProductCard extends StatelessWidget {
 
     void _navigateToProductDetail(int productId) {
       Navigator.of(context).pushNamed(
-        AppRoutes.productsDetail,
+        ProductsRoutes.productsDetail,
         arguments: productId,
       );
     }
