@@ -1,5 +1,5 @@
-import 'package:app_referencia/src/core/environments/environment.dart';
 import 'package:dio/dio.dart';
+import '../environments/environment.dart';
 
 class DioClient {
   static final DioClient _singleton = DioClient._internal();

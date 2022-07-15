@@ -1,4 +1,5 @@
-import '../../../../core/services/db_util.dart';
+import '../../../../core/database/db_tables.dart';
+import '../../../../core/database/db_util.dart';
 import '../../domain/entity/product.dart';
 
 class DbProductRepository {

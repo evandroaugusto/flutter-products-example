@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../../../../core/services/db_util.dart';
-import '../../../../core/services/dio_client.dart';
+import '../../../../core/http/dio_client.dart';
 import '../../domain/entity/product.dart';
 
 class HttpProductRepository {

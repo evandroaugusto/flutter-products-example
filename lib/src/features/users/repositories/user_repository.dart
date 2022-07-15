@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../../../core/services/dio_client.dart';
+import '../../../core/http/dio_client.dart';
 import '../domain/entity/user.dart';
 
 class UserRepository {
