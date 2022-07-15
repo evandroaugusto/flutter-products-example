@@ -1,9 +1,8 @@
-import 'package:app_referencia/src/features/products/pages/product_detail/product_detail.facade.dart';
-import 'package:app_referencia/src/features/products/store/products.store.dart';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../store/products.store.dart';
+import 'product_detail.facade.dart';
 import 'widgets/favorite_button.widget.dart';
 import 'widgets/product_image.widget.dart';
 

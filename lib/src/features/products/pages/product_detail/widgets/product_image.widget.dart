@@ -1,6 +1,7 @@
-import 'package:app_referencia/src/features/products/domain/entity/product.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import '../../../domain/entity/product.dart';
 
 class ProductImage extends StatelessWidget {
   final Product product;

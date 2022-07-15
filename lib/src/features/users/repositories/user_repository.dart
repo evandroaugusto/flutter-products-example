@@ -1,9 +1,9 @@
-import 'package:app_referencia/src/core/services/dio_client.dart';
-import 'package:app_referencia/src/features/users/domain/entity/user.dart';
-import 'package:app_referencia/src/features/users/domain/repository/user_repository.dart';
 import 'package:dio/dio.dart';
 
-class UsersAPI implements UserRepository {
+import '../../../core/services/dio_client.dart';
+import '../domain/entity/user.dart';
+
+class UserRepository {
   late final dio = DioClient().instance;
 
   Future<List<User>> fetchUsers() async {

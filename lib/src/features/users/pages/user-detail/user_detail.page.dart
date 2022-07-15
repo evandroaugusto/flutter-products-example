@@ -1,9 +1,10 @@
-import 'package:app_referencia/src/features/users/api/users_api.dart';
-import 'package:app_referencia/src/features/users/domain/entity/user.dart';
-import 'package:app_referencia/src/features/users/pages/user-detail/user_detail.facade.dart';
-import 'package:app_referencia/src/features/users/pages/user-detail/user_info.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../domain/entity/user.dart';
+import '../../repositories/user_repository.dart';
+import 'user_detail.facade.dart';
+import 'user_info.widget.dart';
 
 class UserDetaiPage extends StatelessWidget {
   const UserDetaiPage({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class UserDetaiPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(title: const Text('Detalhes usuário')),
         body: ChangeNotifierProvider<UserDetailFacade>(
-          create: (_) => UserDetailFacade(repository: UsersAPI()),
+          create: (_) => UserDetailFacade(repository: UserRepository()),
           builder: (context, child) {
             var facade = context.read<UserDetailFacade>();
 

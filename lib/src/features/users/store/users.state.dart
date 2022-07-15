@@ -1,4 +1,4 @@
-import 'package:app_referencia/src/features/users/domain/entity/user.dart';
+import '../domain/entity/user.dart';
 
 class UsersState {
   List<User> users;

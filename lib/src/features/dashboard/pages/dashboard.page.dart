@@ -1,6 +1,6 @@
-import 'package:app_referencia/src/features/dashboard/pages/dashboard_card.widget.dart';
 import 'package:flutter/material.dart';
 import '../api//mock/fetch_dashboard.dart';
+import 'dashboard_card.widget.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);

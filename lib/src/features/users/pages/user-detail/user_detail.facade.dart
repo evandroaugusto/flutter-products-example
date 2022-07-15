@@ -1,6 +1,7 @@
-import 'package:app_referencia/src/features/users/domain/entity/user.dart';
-import 'package:app_referencia/src/features/users/domain/repository/user_repository.dart';
 import 'package:flutter/material.dart';
+
+import '../../domain/entity/user.dart';
+import '../../repositories/user_repository.dart';
 
 class UserDetailFacade extends ChangeNotifier {
   UserRepository repository;

@@ -1,8 +1,9 @@
-import 'package:app_referencia/src/features/products/pages/product_detail/product_detail.facade.dart';
-import 'package:app_referencia/src/features/products/store/products.store.dart';
-import 'package:app_referencia/src/shared/services/loading_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../../shared/services/loading_overlay.dart';
+import '../../../store/products.store.dart';
+import '../product_detail.facade.dart';
 
 class FavoriteButton extends StatelessWidget {
   const FavoriteButton({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class FavoriteButton extends StatelessWidget {
     _onFavorite() {
       LoadingOverlay.of(context).show();
 
-      productsStore.addToFavorite(product!).then(
+      productsStore.toggleFavorite(product!).then(
             (value) => LoadingOverlay.of(context).hide(),
           );
     }

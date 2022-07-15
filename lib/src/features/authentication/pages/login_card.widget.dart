@@ -1,6 +1,7 @@
-import 'package:app_referencia/src/core/store/authentication/authentication.store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../core/store/authentication/authentication.store.dart';
 
 class LoginCard extends StatelessWidget {
   const LoginCard({Key? key}) : super(key: key);

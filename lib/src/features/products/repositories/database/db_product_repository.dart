@@ -1,31 +1,7 @@
-import 'package:app_referencia/src/core/services/db_util.dart';
-import 'package:app_referencia/src/core/services/dio_client.dart';
-import 'package:app_referencia/src/features/products/domain/entity/product.dart';
-import 'package:app_referencia/src/features/products/domain/repository/product_repository.dart';
-import 'package:dio/dio.dart';
+import '../../../../core/services/db_util.dart';
+import '../../domain/entity/product.dart';
 
-class ProductAPI implements ProductRepository {
-  late final dio = DioClient().instance;
-
-  @override
-  Future<List<Product>> fetchProducts() async {
-    Response response = await dio.get("/products");
-
-    var products = (response.data as List).map((item) {
-      return Product.fromMap(item);
-    }).toList();
-
-    return products;
-  }
-
-  @override
-  Future<Product> fetchProduct(int productId) async {
-    Response response = await dio.get("/products/$productId");
-
-    return Product.fromMap(response.data);
-  }
-
-  @override
+class DbProductRepository {
   Future<void> addToFavorite(Product product) async {
     await DbUtil.insert(DbTables.favoritedProducts, {
       'id': product.id,
@@ -37,12 +13,10 @@ class ProductAPI implements ProductRepository {
     });
   }
 
-  @override
   Future<int> removeFavorite(Product product) async {
     return await DbUtil.deleteById(DbTables.favoritedProducts, product.id);
   }
 
-  @override
   Future<List<Product>> fetchFavorites() async {
     final dataList = await DbUtil.getData(DbTables.favoritedProducts);
 

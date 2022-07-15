@@ -1,17 +1,15 @@
-import 'package:app_referencia/src/features/products/api/product_api.dart';
-import 'package:app_referencia/src/features/products/domain/entity/product.dart';
-
-import 'package:app_referencia/src/features/products/domain/repository/product_repository.dart';
+import 'package:app_referencia/src/features/products/repositories/http/http_product_repository.dart';
 import 'package:flutter/material.dart';
+import '../../domain/entity/product.dart';
 
-class _ProductState {
+class ProductState {
   bool isLoading = true;
   Product? product;
 }
 
 class ProductDetailFacade extends ChangeNotifier {
-  final _ProductState _state = _ProductState();
-  final ProductRepository _repository = ProductAPI();
+  final ProductState _state = ProductState();
+  final HttpProductRepository _repository = HttpProductRepository();
 
   // getters
   bool get isLoading => _state.isLoading;

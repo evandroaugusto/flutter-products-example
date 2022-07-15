@@ -1,9 +1,10 @@
-import 'package:app_referencia/src/features/products/domain/entity/product.dart';
-import 'package:app_referencia/src/features/products/store/products.store.dart';
-import 'package:app_referencia/src/features/products/widgets/product_card_widget.dart';
-import 'package:app_referencia/src/shared/services/loading_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../shared/services/loading_overlay.dart';
+import '../../domain/entity/product.dart';
+import '../../store/products.store.dart';
+import '../../widgets/product_card_widget.dart';
 
 class ProductsListPage extends StatefulWidget {
   const ProductsListPage({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class _ProductListPageView extends StatelessWidget {
 
     _onAddToFavorite(Product product) {
       LoadingOverlay.of(context).show();
-      store.addToFavorite(product).then(
+      store.toggleFavorite(product).then(
             (value) => LoadingOverlay.of(context).hide(),
           );
     }

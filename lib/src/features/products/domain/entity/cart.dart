@@ -1,4 +1,4 @@
-import 'package:app_referencia/src/features/products/domain/entity/cart_product.dart';
+import 'cart_product.dart';
 
 class Cart {
   int id;
