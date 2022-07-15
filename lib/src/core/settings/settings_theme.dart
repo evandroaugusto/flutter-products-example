@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ThemeApp {
+class SettingsThemeApp {
   BuildContext context;
-  ThemeApp(this.context);
+  SettingsThemeApp(this.context);
 
   TextTheme get _textTheme => Theme.of(context).textTheme.apply(
         displayColor: Colors.white,

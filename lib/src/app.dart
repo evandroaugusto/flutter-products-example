@@ -1,22 +1,12 @@
-import 'package:app_referencia/src/app.routes.dart';
-import 'package:app_referencia/src/core/store/authentication/authentication.state.dart';
-import 'package:app_referencia/src/core/store/authentication/authentication.store.dart';
-
-import 'package:app_referencia/src/features/authentication/pages/login.page.dart';
-import 'package:app_referencia/src/features/dashboard/pages/dashboard.page.dart';
-import 'package:app_referencia/src/features/products/repositories/database/db_product_repository.dart';
-import 'package:app_referencia/src/features/products/repositories/http/http_product_repository.dart';
-
-import 'package:app_referencia/src/features/products/store/products.store.dart';
-import 'package:app_referencia/src/features/users/repositories/user_repository.dart';
-
-import 'package:app_referencia/src/features/users/store/users.state.dart';
-import 'package:app_referencia/src/features/users/store/users.store.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
 
-UserRepository createUserRepository() => UserRepository();
+import 'app.routes.dart';
+import 'core/settings/settings_providers.dart';
+import 'core/store/authentication/authentication.state.dart';
+import 'core/store/authentication/authentication.store.dart';
+import 'features/authentication/pages/login.page.dart';
+import 'features/dashboard/pages/dashboard.page.dart';
 
 class AppReferencia extends StatelessWidget {
   const AppReferencia({Key? key}) : super(key: key);
@@ -24,28 +14,14 @@ class AppReferencia extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    //ThemeData themeData = ThemeApp(context).theme;
+    //ThemeData themeData = SettingsThemeApp(context).theme;
 
     return MultiProvider(
-      providers: [
-        StateNotifierProvider<AuthenticationStore, AuthenticationState>(
-          create: (_) => AuthenticationStore(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => ProductsStore(
-              httpRepository: HttpProductRepository(),
-              dbRepository: DbProductRepository()),
-        ),
-        StateNotifierProvider<UsersStore, UsersState>(
-          create: (_) => UsersStore(
-            repository: createUserRepository(),
-          ),
-        ),
-      ],
+      providers: SettingsProviders.providers,
       child: MaterialApp(
         title: 'App Referencia',
         routes: AppRoutes().routes,
-        //theme: themeData,
+        //theme: SettingsThemeData,
         home: Consumer<AuthenticationStore>(
           builder: (context, store, child) {
             var state = context.watch<AuthenticationState>();

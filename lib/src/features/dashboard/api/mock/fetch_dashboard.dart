@@ -1,8 +1,7 @@
+import 'package:app_referencia/src/features/dashboard/models/dashboard_item.dart';
 import 'package:app_referencia/src/features/products/products.routes.dart';
 import 'package:app_referencia/src/features/users/users.routes.dart';
 import 'package:flutter/material.dart';
-
-import '../../models/dashboard_item.dart';
 
 final List<DashboardItem> mockDashboardData = [
   DashboardItem(
