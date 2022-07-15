@@ -1,5 +1,5 @@
-import 'package:app_referencia/src/core/store/authentication.state.dart';
 import 'package:state_notifier/state_notifier.dart';
+import 'authentication.state.dart';
 
 class AuthenticationStore extends StateNotifier<AuthenticationState> {
   AuthenticationStore() : super(AuthenticationState.initialState);

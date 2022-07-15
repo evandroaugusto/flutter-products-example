@@ -1,6 +1,7 @@
 import 'package:app_referencia/src/app.routes.dart';
-import 'package:app_referencia/src/core/store/authentication.state.dart';
-import 'package:app_referencia/src/core/store/authentication.store.dart';
+import 'package:app_referencia/src/core/store/authentication/authentication.state.dart';
+import 'package:app_referencia/src/core/store/authentication/authentication.store.dart';
+
 import 'package:app_referencia/src/features/authentication/pages/login.page.dart';
 import 'package:app_referencia/src/features/dashboard/pages/dashboard.page.dart';
 
@@ -25,6 +26,8 @@ class AppReferencia extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //ThemeData themeData = ThemeApp(context).theme;
+
     return MultiProvider(
       providers: [
         StateNotifierProvider<AuthenticationStore, AuthenticationState>(
@@ -44,6 +47,7 @@ class AppReferencia extends StatelessWidget {
       child: MaterialApp(
         title: 'App Referencia',
         routes: AppRoutes().routes,
+        //theme: themeData,
         home: Consumer<AuthenticationStore>(
           builder: (context, store, child) {
             context.watch<AuthenticationState>();

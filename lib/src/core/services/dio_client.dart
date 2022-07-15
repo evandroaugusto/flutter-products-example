@@ -1,4 +1,4 @@
-import 'package:app_referencia/src/core/environment/environment.dart';
+import 'package:app_referencia/src/core/environments/environment.dart';
 import 'package:dio/dio.dart';
 
 class DioClient {

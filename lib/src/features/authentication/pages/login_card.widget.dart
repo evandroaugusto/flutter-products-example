@@ -1,4 +1,4 @@
-import 'package:app_referencia/src/core/store/authentication.store.dart';
+import 'package:app_referencia/src/core/store/authentication/authentication.store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

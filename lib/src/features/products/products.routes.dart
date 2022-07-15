@@ -5,7 +5,7 @@ import 'pages/product_list/product_list.page.dart';
 
 class ProductsRoutes {
   static const products = '/products';
-  static const productsDetail = '/proucts/detail';
+  static const productsDetail = '/products/detail';
 
   Map<String, Widget Function(BuildContext)> get routes => {
         ProductsRoutes.products: (ctx) => const ProductsListPage(),
