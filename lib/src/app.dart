@@ -8,6 +8,8 @@ import 'core/store/authentication/authentication.store.dart';
 import 'features/authentication/pages/login.page.dart';
 import 'features/dashboard/pages/dashboard.page.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class AppReferencia extends StatelessWidget {
   const AppReferencia({Key? key}) : super(key: key);
 
@@ -21,6 +23,7 @@ class AppReferencia extends StatelessWidget {
       child: MaterialApp(
         title: 'App Referencia',
         routes: AppRoutes().routes,
+        navigatorKey: navigatorKey,
         //theme: SettingsThemeData,
         home: Consumer<AuthenticationStore>(
           builder: (context, store, child) {
