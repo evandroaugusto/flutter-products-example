@@ -7,7 +7,7 @@ class SettingsProviders {
   SettingsProviders._();
 
   static final providers = [
-    authenticationStoreProvider,
+    //authenticationStoreProvider,
     productsStoreProvider,
     usersStoreProviders
   ].toList();

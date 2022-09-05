@@ -1,4 +1,6 @@
+import 'package:app_referencia/src/core/store/authentication/authentication.store.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../api//mock/fetch_dashboard.dart';
 import 'dashboard_card.widget.dart';
 
@@ -7,8 +9,23 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authStore = context.read<AuthenticationStore>();
+
     return Scaffold(
-      appBar: AppBar(title: const Text("Dashboard")),
+      appBar: AppBar(
+        title: const Text("Dashboard"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              authStore.logout();
+            },
+            icon: const Icon(Icons.exit_to_app),
+          ),
+          const SizedBox(
+            width: 10,
+          )
+        ],
+      ),
       body: GridView(
         scrollDirection: Axis.vertical,
         padding: const EdgeInsets.all(20),

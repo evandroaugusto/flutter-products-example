@@ -11,8 +11,10 @@ class UsersStore extends StateNotifier<UsersState> {
   List<User> get users => state.users;
 
   Future<List<User>> fetchUsers() async {
-    var users = await repository.fetchUsers();
-    state = state.copyWith(users: users, isLoading: false);
-    return users;
+    if (users.isEmpty) {
+      var users = await repository.fetchUsers();
+      state = state.copyWith(users: users, isLoading: false);
+    }
+    return state.users;
   }
 }

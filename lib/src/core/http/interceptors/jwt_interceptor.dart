@@ -1,4 +1,4 @@
-import 'package:app_referencia/src/app.routes.dart';
+import 'package:app_referencia/src/features/app.routes.dart';
 import 'package:app_referencia/src/core/environments/environment.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +25,9 @@ class JwtInterceptor extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) async {
+    navigatorKey.currentState
+        ?.pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
+
     super.onResponse(response, handler);
   }
 

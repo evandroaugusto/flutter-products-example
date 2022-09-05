@@ -23,9 +23,11 @@ class ProductsStore extends ChangeNotifier {
 
   // methods
   Future<List<Product>> fetchProducts() async {
-    _state.products = await httpRepository.fetchProducts();
-    _state.isLoading = false;
-    notifyListeners();
+    if (products.isEmpty) {
+      _state.products = await httpRepository.fetchProducts();
+      _state.isLoading = false;
+      notifyListeners();
+    }
 
     return _state.products;
   }

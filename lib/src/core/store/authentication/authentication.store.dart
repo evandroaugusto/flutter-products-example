@@ -1,6 +1,8 @@
 import 'package:app_referencia/src/core/environments/environment.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:state_notifier/state_notifier.dart';
+import '../../../app.dart';
 import 'authentication.state.dart';
 
 class AuthenticationStore extends StateNotifier<AuthenticationState> {
@@ -17,6 +19,8 @@ class AuthenticationStore extends StateNotifier<AuthenticationState> {
     prefs.setString(Environment.tokenKey, uuid);
 
     state = AuthenticationState(authMode: AuthMode.loggedIn);
+    navigatorKey.currentState
+        ?.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
   }
 
   void logout() {

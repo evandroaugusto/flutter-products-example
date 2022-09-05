@@ -3,8 +3,21 @@ import 'package:provider/provider.dart';
 
 import '../../../core/store/authentication/authentication.store.dart';
 
-class LoginCard extends StatelessWidget {
+class LoginCard extends StatefulWidget {
   const LoginCard({Key? key}) : super(key: key);
+
+  @override
+  State<LoginCard> createState() => _LoginCardState();
+}
+
+class _LoginCardState extends State<LoginCard> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<AuthenticationStore>(context, listen: false).logout();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,12 @@
+import 'package:app_referencia/src/features/features.module.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'app.routes.dart';
-import 'core/settings/settings_providers.dart';
+import 'core/store/authentication/authentication.provider.dart';
 import 'core/store/authentication/authentication.state.dart';
 import 'core/store/authentication/authentication.store.dart';
 import 'features/authentication/pages/login.page.dart';
-import 'features/dashboard/pages/dashboard.page.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -19,10 +19,9 @@ class AppReferencia extends StatelessWidget {
     //ThemeData themeData = SettingsThemeApp(context).theme;
 
     return MultiProvider(
-      providers: SettingsProviders.providers,
+      providers: [authenticationStoreProvider],
       child: MaterialApp(
         title: 'App Referencia',
-        routes: AppRoutes().routes,
         navigatorKey: navigatorKey,
         //theme: SettingsThemeData,
         home: Consumer<AuthenticationStore>(
@@ -31,9 +30,20 @@ class AppReferencia extends StatelessWidget {
 
             return state.authMode == AuthMode.loggedOut
                 ? const LoginPage()
-                : const DashboardPage();
+                : const FeaturesModule();
           },
         ),
+        routes: {'/login': (ctx) => const LoginPage()},
+        // onGenerateRoute: (settings) {
+        //   if (settings.name == '/login') {
+        //     return MaterialPageRoute<dynamic>(
+        //       builder: (context) {
+        //         return const LoginPage();
+        //       },
+        //       settings: settings,
+        //     );
+        //   }
+        // },
       ),
     );
   }
