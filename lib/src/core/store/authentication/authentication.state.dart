@@ -9,4 +9,6 @@ class AuthenticationState {
   AuthenticationState({
     required this.authMode,
   });
+
+  bool get isLogged => authMode == AuthMode.loggedIn;
 }

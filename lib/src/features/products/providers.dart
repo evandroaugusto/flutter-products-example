@@ -6,6 +6,7 @@ import 'repositories/http/http_product_repository.dart';
 
 var productsStoreProvider = ChangeNotifierProvider(
   create: (_) => ProductsStore(
-      httpRepository: HttpProductRepository(),
-      dbRepository: DbProductRepository()),
+    httpRepository: HttpProductRepository(),
+    dbRepository: DbProductRepository(),
+  ),
 );
