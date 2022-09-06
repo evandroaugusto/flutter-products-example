@@ -1,14 +1,13 @@
+import 'package:provider/single_child_widget.dart';
+
 import '../../features/products/providers.dart';
 import '../../features/users/providers.dart';
-
-import '../store/authentication/authentication.provider.dart';
 
 class SettingsProviders {
   SettingsProviders._();
 
-  static final providers = [
-    //authenticationStoreProvider,
+  static final List<SingleChildStatelessWidget> providers = [
     productsStoreProvider,
     usersStoreProviders
-  ].toList();
+  ];
 }

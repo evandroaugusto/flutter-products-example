@@ -25,17 +25,14 @@ class JwtInterceptor extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) async {
-    navigatorKey.currentState
-        ?.pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
-
     super.onResponse(response, handler);
   }
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     if (err.response?.statusCode == 401) {
-      navigatorKey.currentState?.pushNamedAndRemoveUntil(
-          AppRoutes.dashboard, (Route<dynamic> route) => false);
+      navigatorKey.currentState
+          ?.pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
     }
 
     super.onError(err, handler);
