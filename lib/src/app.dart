@@ -34,16 +34,6 @@ class AppReferencia extends StatelessWidget {
           },
         ),
         routes: {'/login': (ctx) => const LoginPage()},
-        // onGenerateRoute: (settings) {
-        //   if (settings.name == '/login') {
-        //     return MaterialPageRoute<dynamic>(
-        //       builder: (context) {
-        //         return const LoginPage();
-        //       },
-        //       settings: settings,
-        //     );
-        //   }
-        // },
       ),
     );
   }
